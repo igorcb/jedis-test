@@ -33,5 +33,7 @@ module JedisTest
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    
   end
+  Faker::Config.locale = 'pt-BR'
 end

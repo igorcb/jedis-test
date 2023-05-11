@@ -71,15 +71,17 @@ GEM
     bootsnap (1.16.0)
       msgpack (~> 1.2)
     builder (3.2.4)
+    byebug (11.1.3)
+    clipboard (1.3.6)
     colorize (0.8.1)
     concurrent-ruby (1.2.2)
+    cpf_cnpj (0.5.0)
+    cpf_faker (1.3.0)
+      clipboard
     crass (1.0.6)
     cssbundling-rails (1.1.2)
       railties (>= 6.0.0)
     date (3.3.3)
-    debug (1.8.0)
-      irb (>= 1.5.0)
-      reline (>= 0.3.1)
     diff-lcs (1.5.0)
     docile (1.4.0)
     erubi (1.12.0)
@@ -97,9 +99,6 @@ GEM
       activesupport (>= 5.0)
     i18n (1.13.0)
       concurrent-ruby (~> 1.0)
-    io-console (0.6.0)
-    irb (1.6.4)
-      reline (>= 0.3.0)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -171,8 +170,6 @@ GEM
     rake (13.0.6)
     redis (4.8.1)
     regexp_parser (2.8.0)
-    reline (0.3.3)
-      io-console (~> 0.5)
     rexml (3.2.5)
     rspec-core (3.12.2)
       rspec-support (~> 3.12.0)
@@ -260,9 +257,11 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
+  byebug
   colorize (= 0.8.1)
+  cpf_cnpj
+  cpf_faker
   cssbundling-rails
-  debug
   factory_bot_rails
   faker
   fuubar
