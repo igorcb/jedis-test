@@ -33,12 +33,12 @@ jobs:
         uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
         with:
           bundler-cache: true
-      # Add or replace database setup steps here
+      - name: Run assets
+        run: bundle exec rake -W assets:precompile
       - name: Set up database create
         run: bin/rails db:create
-      - name: Set up database migrate
+      - name: Database migrate
         run: bin/rails db:migrate
-      # Add or replace test runners here
       - name: Run tests
         run: bundle exec rspec spec --format Fuubar --color
       - name: Lint Ruby files
