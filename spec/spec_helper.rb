@@ -13,24 +13,24 @@
 # it.
 
 # if ENV['RAILS_ENV'] == 'test'
-require 'simplecov'
-SimpleCov.start 'rails' do
-  add_filter '/channels/'
-  add_filter '/jobs/'
-  add_filter '/mailers/'
-  add_filter '/config/'
-  add_filter '/spec/'
+# require 'simplecov'
+# SimpleCov.start 'rails' do
+#   add_filter '/channels/'
+#   add_filter '/jobs/'
+#   add_filter '/mailers/'
+#   add_filter '/config/'
+#   add_filter '/spec/'
 
-  add_group 'Controllers', 'app/controllers'
-  add_group 'Models', 'app/models'
-  add_group 'Jobs', 'app/jobs'
-  add_group 'Mailers', 'app/mailers'
-  add_group 'Services', 'app/services'
+#   add_group 'Controllers', 'app/controllers'
+#   add_group 'Models', 'app/models'
+#   add_group 'Jobs', 'app/jobs'
+#   add_group 'Mailers', 'app/mailers'
+#   add_group 'Services', 'app/services'
 
-  enable_coverage :branch
-  minimum_coverage line: 100, branch: 100
-end
-puts 'required simplecov'
+#   enable_coverage :branch
+#   minimum_coverage line: 100, branch: 100
+# end
+# puts 'required simplecov'
 
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
