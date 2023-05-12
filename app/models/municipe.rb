@@ -1,5 +1,9 @@
 class Municipe < ApplicationRecord
   EMAIL_REGEX = /\A[^@\s]+@([^@.\s]+\.)+[^@.\s]+\z/
+
+  has_one :address, dependent: :destroy
+  accepts_nested_attributes_for :address
+
   validates :name, :cpf, :cns, :phone, presence: true
   validates :email, presence: true, format: { with: EMAIL_REGEX }
 

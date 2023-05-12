@@ -8,9 +8,17 @@ RSpec.describe 'Municipes', type: :request do
     end
   end
 
-  describe 'GET /new' do
+  describe 'GET new' do
     it 'returns http success' do
-      get '/municipes/new'
+      get new_municipe_path
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe 'GET edit' do
+    it 'returns http success' do
+      municipe = create(:municipe)
+      get edit_municipe_path(municipe.id)
       expect(response).to have_http_status(:success)
     end
   end

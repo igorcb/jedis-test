@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :municipes, only: [:index, :new, :create]
+  resources :municipes, except: [:destroy]
   get '/', to: 'municipes#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

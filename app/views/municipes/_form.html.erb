@@ -1,4 +1,5 @@
-<%= form_for @municipe do |f| %>
+
+<%= form_with(model: municipe) do |f| %>
   <div class="form d-flex gap-5 ">
     <div class="">
       <h3>Dados Pessoais</h3>
@@ -57,6 +58,52 @@
 
     <div class="">
       <h3>Endereço</h3>
+
+
+      <div class="">
+        <%= f.fields_for :address do |address_form| %>
+          <div class="mb-3">
+            <label for="zip_code" class="form-label">CEP</label>
+            <%= address_form.text_field :zip_code, class: "form-control", placeholder: "00000-000" %>
+          </div>
+
+          <div class="mb-3">
+            <label for="zip_code" class="form-label">Logradouro</label>
+            <%= address_form.text_field :street, class: "form-control", placeholder: "" %>
+          </div>
+
+          <div class="mb-3">
+            <label for="zip_code" class="form-label">Numero</label>
+            <%= address_form.text_field :number, class: "form-control", placeholder: "" %>
+          </div>
+
+          <div class="mb-3">
+            <label for="zip_code" class="form-label">Complemento</label>
+            <%= address_form.text_field :complement, class: "form-control", placeholder: "" %>
+          </div>
+
+          <div class="mb-3">
+            <label for="zip_code" class="form-label">Bairro</label>
+            <%= address_form.text_field :neighborhood, class: "form-control", placeholder: "" %>
+          </div>
+
+          <div class="mb-3">
+            <label for="zip_code" class="form-label">Cidade</label>
+            <%= address_form.text_field :city, class: "form-control", placeholder: "" %>
+          </div>
+
+          <div class="mb-3">
+            <label for="zip_code" class="form-label">Estado</label>
+            <%= address_form.text_field :state, class: "form-control", placeholder: "" %>
+          </div>
+
+          <div class="mb-3">
+            <label for="zip_code" class="form-label">Codigo IBGE</label>
+            <%= address_form.text_field :code_ibge, class: "form-control", placeholder: "" %>
+          </div>
+        <% end %>
+      </div>
+
     </div>
 
   </div>
