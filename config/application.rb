@@ -33,11 +33,10 @@ module JedisTest
 
     # Don't generate system test files.
     config.generators.system_tests = nil
-    config.secret_key_base = ENV['SECRET_KEY_BASE']
   end
 
   if ENV['RAILS_ENV'] == 'test'
     Faker::Config.locale = 'pt-BR'
   end
-  
+
 end
