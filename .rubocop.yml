@@ -159,8 +159,8 @@ RSpec/ExampleLength:
 # RSpec/MessageSpies:
 #   Enabled: false # TODO: estudar melhor
 
-# RSpec/MultipleExpectations:
-#   Enabled: false
+RSpec/MultipleExpectations:
+  Enabled: false
 
 # RSpec/MultipleMemoizedHelpers:
 #   Enabled: false

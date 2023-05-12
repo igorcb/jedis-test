@@ -6,7 +6,7 @@ class Municipe < ApplicationRecord
   validate :cpf_is_valid?, :birth_date_valid?
 
   def cpf_is_valid?
-    return errors.add(:cpf, 'CPF invalid') unless CPF.valid?(cpf)
+    return errors.add(:cpf, 'is invalid') unless CPF.valid?(cpf)
   end
 
   def birth_date_valid?
@@ -16,9 +16,9 @@ class Municipe < ApplicationRecord
     actual_year = Time.zone.now.year
 
     if year > actual_year
-      return errors.add(:birth_date, 'invalid')
+      return errors.add(:birth_date, 'is invalid')
     end
 
-    return errors.add(:birth_date, 'invalid') if (actual_year - year) > 100
+    return errors.add(:birth_date, 'is invalid') if (actual_year - year) > 100
   end
 end
