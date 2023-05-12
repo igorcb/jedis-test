@@ -35,5 +35,7 @@ module JedisTest
     config.generators.system_tests = nil
     
   end
-  Faker::Config.locale = 'pt-BR'
+  if ENV['RAILS_ENV'] == 'test'
+    Faker::Config.locale = 'pt-BR'
+  end
 end
