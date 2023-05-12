@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe MunicipesController, type: :controller do
-  subject { create(:municipe) }
+  subject(:municipe) { create(:municipe) }
 
   let(:municipe_params) {
     {
@@ -20,7 +20,7 @@ RSpec.describe MunicipesController, type: :controller do
     expect(response).not_to be_successful
   end
 
-  it 'when params valid return error' do
+  it 'when params valid return success' do
     post :create, params: { municipe: municipe_params }
 
     municipe_last = Municipe.last
@@ -32,6 +32,19 @@ RSpec.describe MunicipesController, type: :controller do
     expect(municipe_last.phone).to eq(municipe_params[:phone])
     expect(response).to redirect_to(municipes_path)
   end
-end
 
-# expect(Municipe.first.name).to be == 'John Doe'
+  it 'when edit params invalid return error' do
+    put :update, params: { id: municipe.id, municipe: { name: nil } }
+
+    expect(response).not_to be_successful
+  end
+
+  it 'when edit params valid return success' do
+    name_update = Faker::Name.name
+    put :update, params: { id: municipe.id, municipe: { name: name_update } }
+
+    municipe_last = Municipe.last
+    expect(municipe_last.name).to eq(name_update)
+    expect(response).to redirect_to(municipes_path)
+  end
+end
