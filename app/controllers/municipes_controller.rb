@@ -44,6 +44,7 @@ class MunicipesController < ApplicationController
       :email,
       :phone,
       :birth_date,
+      :image,
       address_attributes: %i[
         id zip_code street number complement neighborhood city
         state code_ibge

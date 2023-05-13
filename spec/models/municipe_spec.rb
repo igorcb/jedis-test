@@ -78,4 +78,14 @@ RSpec.describe Municipe, type: :model do
     municipe_invalid.birth_date = Date.current - 10.years
     expect(municipe_invalid).to be_valid
   end
+
+  it 'when image is attached' do
+    path = Rails.root.join('spec/factories/images/avatar.jpg')
+    municipe.image.attach(
+      io: File.open(path),
+      filename: 'avatar.jpg',
+      content_type: 'image/jpg',
+    )
+    expect(municipe.image).to be_attached
+  end
 end

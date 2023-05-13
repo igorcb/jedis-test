@@ -11,15 +11,17 @@
   <div class="card w-full mb-2">
     <div class="card-body d-flex justify-content-between align-items-center">
       <div class="rounded-circle border border-primary " style="width:50px;height:50px" alt="Avatar" >
-        <i class="fas fa-user-alt fa-3x text-info"></i>
+        <% if municipe.image.attached? %>
+          <%= image_tag(municipe.image, style: "width:50px;height:50px", class: "rounded-circle border border-primary") %>
+        <% end %>
       </div>
       <div>
         <h5 class="card-title"><%= municipe.name %> - <%= municipe.cpf %></h5>
         <p class="card-text">
           CNS: <%= municipe.cns %>,
           Telefone: <%= municipe.phone %>,
-          Cidade: ,
-          Estado: ,
+          Cidade: <%= municipe&.address&.city %>,
+          Estado: <%= municipe&.address&.state %>,
         </p>
       </div>
       <div>

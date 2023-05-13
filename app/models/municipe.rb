@@ -4,6 +4,8 @@ class Municipe < ApplicationRecord
   has_one :address, dependent: :destroy
   accepts_nested_attributes_for :address
 
+  has_one_attached :image
+
   validates :name, :cpf, :cns, :phone, presence: true
   validates :email, presence: true, format: { with: EMAIL_REGEX }
 
