@@ -16,10 +16,3 @@ FactoryBot.define do
     end
   end
 end
-
-# factory :culture do
-#   name 'Soy'
-#   after(:build) do |culture|
-#     culture.image.attach(io: File.open(Rails.root.join('spec', 'factories', 'images', 'soy.jpeg')), filename: 'soy.jpeg', content_type: 'image/jpeg')
-#   end
-# end
