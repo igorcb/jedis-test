@@ -5,6 +5,10 @@
       <%= image_tag('back.svg', "data-svg-fallback" => asset_path('back.svg'), style: "width:32px;height:32px") %>
     <% end %>
   </div>
+
+  <% @municipe.errors.full_messages_for(:name).each do |message| %>
+    <div class="text-danger"><%= message %></div>
+  <% end %>
   
   <div class="form d-flex gap-5 ">
     <div >
