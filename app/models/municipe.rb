@@ -11,6 +11,9 @@ class Municipe < ApplicationRecord
 
   validate :cpf_is_valid?, :birth_date_valid?
 
+  after_create :send_welcome
+  after_update :send_welcome
+
   def cpf_is_valid?
     return errors.add(:cpf, 'is invalid') unless CPF.valid?(cpf)
   end
@@ -26,5 +29,11 @@ class Municipe < ApplicationRecord
     end
 
     return errors.add(:birth_date, 'is invalid') if (actual_year - year) > 100
+  end
+
+  def send_welcome
+    Thread.new do
+      ApplicationMailer.welcome(self).deliver_now
+    end
   end
 end

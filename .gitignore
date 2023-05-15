@@ -36,3 +36,5 @@
 /node_modules
 db/schema.rb
 coverage
+.env
+.env-prod
