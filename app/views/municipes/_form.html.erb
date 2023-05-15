@@ -17,7 +17,7 @@
         <label for="" class="form-label">Nome Completo</label>
         <%= f.text_field :name, class: "form-control", placeholder: "John Doe"%>
         <% @municipe.errors.full_messages_for(:name).each do |message| %>
-          <div class="text-danger"><%#= message %></div>
+          <div class="text-danger"><%# message %></div>
         <% end %>
       </div>
 
