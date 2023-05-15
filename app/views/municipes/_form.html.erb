@@ -6,7 +6,7 @@
     <% end %>
   </div>
 
-  <% @municipe.errors.full_messages_for(:name).each do |message| %>
+  <% @municipe.errors.full_messages.each do |message| %>
     <div class="text-danger"><%= message %></div>
   <% end %>
   
