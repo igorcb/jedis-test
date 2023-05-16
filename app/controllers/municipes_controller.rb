@@ -2,7 +2,16 @@ class MunicipesController < ApplicationController
   before_action :set_municipe, only: %i[edit update]
 
   def index
-    @municipes = Municipe.all
+    @municipes =
+      if params[:search].present?
+        Municipe.joins(:address)
+          .where('lower(addresses.city) like ? or lower(addresses.state) = ? or municipes.name like ?',
+                 "%#{params[:search]}%".downcase,
+                 params[:search].downcase,
+                 "%#{params[:search]}%",).includes(:address).paginate(page: params[:page], per_page: 10)
+      else
+        Municipe.all.paginate(page: params[:page], per_page: 10)
+      end
   end
 
   def new

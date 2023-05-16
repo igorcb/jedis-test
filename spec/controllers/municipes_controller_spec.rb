@@ -14,6 +14,18 @@ RSpec.describe MunicipesController, type: :controller do
     }
   }
 
+  it 'without search' do
+    get :index
+
+    expect(response).to be_successful
+  end
+
+  it 'with search' do
+    get :index, params: { search: 'CE' }
+
+    expect(response).to be_successful
+  end
+
   it 'when params invalid return success' do
     post :create, params: { municipe: { name: nil } }
 
