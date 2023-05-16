@@ -1,0 +1,21 @@
+version: '3'
+services:
+  postgres:
+    image: 'postgres'
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password
+    ports:
+      - "54322:5432"
+    volumes:
+      - ./tmp/postgres:/var/lib/postgresql/data
+      
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails db:migrate && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/jedis-test
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
