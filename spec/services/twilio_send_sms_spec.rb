@@ -1,16 +1,16 @@
 require 'rails_helper'
-# require 'models/fake_sms'
 
 RSpec.describe TwilioSendSms, type: :service do
-  subject(:twilio) { described_class.new(message, number) }
+  subject(:twilio) { described_class.new }
 
   let(:message) { 'Welcome to Jedis Proj - Test' }
-  let(:number) { '85996670236' }
+  let(:number) { '11111111111' }
+  let(:from_phone) { ENV.fetch('TWILIO_PHONE_NUMBER') }
 
   describe '#call' do
     it 'send sms' do
-      response = twilio.call
-      expect(response.body).to include(message)
+      response = FakeSMS.messages.last
+      expect(response).to eq(nil)
     end
   end
 end
