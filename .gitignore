@@ -38,3 +38,4 @@ db/schema.rb
 coverage
 .env
 .env-prod
+.byebug_history
