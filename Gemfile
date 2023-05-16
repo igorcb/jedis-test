@@ -54,6 +54,7 @@ gem 'cpf_cnpj'
 gem 'twilio-ruby'
 gem 'dotenv-rails'
 gem 'will_paginate-bootstrap'
+gem 'aws-sdk-s3', '~> 1.122'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
