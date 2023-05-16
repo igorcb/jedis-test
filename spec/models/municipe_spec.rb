@@ -1,11 +1,11 @@
 require 'rails_helper'
-require 'byebug'
+
 RSpec.describe Municipe, type: :model do
   let(:municipe) {
     described_class.new(
       name: 'John Doe',
       cpf: Faker::CPF.numeric,
-      cns: '111111111111111',
+      cns: '187329617340002',
       email: 'john@Doe.com',
       phone: '1111111111',
       birth_date: Time.zone.now,
@@ -16,7 +16,7 @@ RSpec.describe Municipe, type: :model do
     described_class.new(
       name: 'John Doe',
       cpf: Faker::CPF.numeric,
-      cns: '111111111111111',
+      cns: '187329617340002',
       email: 'john@Doe.com',
       phone: '1111111111',
       birth_date: Time.zone.now,
@@ -44,8 +44,18 @@ RSpec.describe Municipe, type: :model do
     expect(municipe_invalid).not_to be_valid
   end
 
+  it 'when cpf is invalid' do
+    municipe_invalid.cpf = '123'
+    expect(municipe_invalid).not_to be_valid
+  end
+
   it 'when cns is not present' do
-    municipe_invalid.cns = nil
+    municipe_invalid.cns = ''
+    expect(municipe_invalid).not_to be_valid
+  end
+
+  it 'when cns is invalid' do
+    municipe_invalid.cns = '111111111111'
     expect(municipe_invalid).not_to be_valid
   end
 

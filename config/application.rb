@@ -1,6 +1,6 @@
 require_relative "boot"
 
-require "rails"
+require "rails/all"
 # Pick the frameworks you want:
 require "active_model/railtie"
 require "active_job/railtie"
@@ -33,6 +33,7 @@ module JedisTest
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    config.autoload_paths += %W[#{config.root}/lib]
   end
 
   if ENV['RAILS_ENV'] == 'test'

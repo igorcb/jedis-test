@@ -7,7 +7,7 @@ RSpec.describe MunicipesController, type: :controller do
     {
       name: 'John Doe',
       cpf: Faker::CPF.numeric,
-      cns: '111111111111111',
+      cns: '187329617340002',
       email: 'john@Doe.com',
       phone: '1111111111',
       birth_date: Date.current - 30,
@@ -27,7 +27,7 @@ RSpec.describe MunicipesController, type: :controller do
   end
 
   it 'when params invalid return success' do
-    post :create, params: { municipe: { name: nil } }
+    post :create, params: { municipe: { name: nil, cns: '' } }
 
     expect(response).not_to be_successful
   end

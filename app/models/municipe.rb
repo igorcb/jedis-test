@@ -1,4 +1,5 @@
 class Municipe < ApplicationRecord
+  include Cns
   EMAIL_REGEX = /\A[^@\s]+@([^@.\s]+\.)+[^@.\s]+\z/
 
   has_one :address, dependent: :destroy
@@ -9,13 +10,17 @@ class Municipe < ApplicationRecord
   validates :name, :cpf, :cns, :phone, presence: true
   validates :email, presence: true, format: { with: EMAIL_REGEX }
 
-  validate :cpf_is_valid?, :birth_date_valid?
+  validate :cpf_is_valid?, :birth_date_valid?, :cns_is_valid?
 
   after_create :send_welcome
   after_update :send_welcome
 
   def cpf_is_valid?
     return errors.add(:cpf, 'is invalid') unless CPF.valid?(cpf)
+  end
+
+  def cns_is_valid?
+    return errors.add(:cns, 'CNS invalid') unless Cns.validate(cns)
   end
 
   def birth_date_valid?
