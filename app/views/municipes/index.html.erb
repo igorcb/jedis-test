@@ -1,11 +1,20 @@
 <h1 class="d-flex justify-content-center m-5">
   Listagem de Municipe
-</h1>  
+</h1> 
 
-<%= link_to raw("<i class=\"bi bi-plus-square-fill\"> Novo Municipe </i>"), 
-  new_municipe_path, 
-  class: "btn btn-outline-primary mb-2"
-%>
+<div class="d-flex justify-content-between align-items-center">
+  <%= form_with( url: municipes_path ,method: :get , remote: true) do |f| %>
+    <div class="mb-3 d-flex gap-1">  
+    <%= f.text_field :search, class: 'form-control' %>
+    <%= f.submit "Search", class: "btn btn-outline-primary" %>
+    </div>
+  <% end %>
+
+  <%= link_to raw("<i class=\"bi bi-plus-square-fill\"> Novo Municipe </i>"), 
+    new_municipe_path, 
+    class: "btn btn-outline-primary mb-2"
+  %>
+</div>
 
 <% @municipes.each do |municipe| %>
   <div class="card w-full mb-2">
@@ -38,3 +47,5 @@
     </div>
   </div>
 <% end %>
+
+<%= will_paginate @municipes, renderer: BootstrapPagination::Rails %>
