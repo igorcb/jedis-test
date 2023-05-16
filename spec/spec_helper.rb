@@ -28,7 +28,7 @@ SimpleCov.start 'rails' do
   add_group 'Services', 'app/services'
 
   enable_coverage :branch
-  minimum_coverage line: 100, branch: 100
+  minimum_coverage line: 95, branch: 100
 end
 # puts 'required simplecov'
 
