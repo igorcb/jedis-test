@@ -19,10 +19,23 @@ This is a [Ruby on Rails](https://rubyonrails.org/) starter app that connects to
 - Rails
 - Postgres
 - Redis
+- Rspec
+- Simulus
+- Active Storage (AWS S3)
+- Bootstrap pagination
+- Send SMS (twilio)
 
 ## 💁‍♀️ How to use
 
-- [Create a Railway project with the Postgres plugin](https://railway.app/project?plugins=postgresql)
+- [Para rodar local](http://localhost:3000)
+- Baixe o projeto com git clone
+- Entrar na pasta do projeto
+- Instalar gems `bundle install`
+- Criar Banco de Dados `bundle exec rails db:create`
+- Criar as Tabelas do Banco de Dados `bundle exec rails db:migrate`
+- Rodar o app `bundle exec rails s -b 0.0.0.0 -p 3000`
+
+- [Para rodar local com docker](http://localhost:3000)
 - Connect to your Railway project with `railway link`
 - Install Ruby requirements `bundle install`
 - Migrate the database `railway run rake db:migrate`
