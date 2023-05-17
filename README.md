@@ -1,17 +1,8 @@
----
-title: Rails Starter
-description: A Rails starter app using a PostgreSQL database
-tags:
-  - ruby
-  - rails
-  - postgresql
----
+# Rails Jedis Test
 
-# Rails Starter Example
+[https://jedi-test.fly.dev/](https://jedi-test.fly.dev/)
 
 This is a [Ruby on Rails](https://rubyonrails.org/) starter app that connects to a Railway Postgres database and supports [Action Cable](https://guides.rubyonrails.org/action_cable_overview.html).
-
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/sibk1f)
 
 ## ✨ Features
 
@@ -20,10 +11,12 @@ This is a [Ruby on Rails](https://rubyonrails.org/) starter app that connects to
 - Postgres
 - Redis
 - Rspec
-- Simulus
+- Sitimulus
+- Active Mailer
 - Active Storage (AWS S3)
 - Bootstrap pagination
 - Send SMS (twilio)
+- ZipCode
 
 ## 💁‍♀️ How to use
 
@@ -36,10 +29,10 @@ This is a [Ruby on Rails](https://rubyonrails.org/) starter app that connects to
 - Rodar o app `bundle exec rails s -b 0.0.0.0 -p 3000`
 
 - [Para rodar local com docker](http://localhost:3000)
-- Connect to your Railway project with `railway link`
-- Install Ruby requirements `bundle install`
-- Migrate the database `railway run rake db:migrate`
-- Run Rails `railway run bin/rails server`
+- Baixe o projeto com git clone
+- Docker build `docker-compose build`
+- Criar Banco de Dados `docker-compose run web rails db:create`
+- Rodar o app `docker-compose up -d`
 
 ## 📝 Notes
 
