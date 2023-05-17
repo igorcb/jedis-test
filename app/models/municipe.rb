@@ -39,6 +39,11 @@ class Municipe < ApplicationRecord
   def send_welcome
     Thread.new do
       ApplicationMailer.welcome(self).deliver_now
+      TwilioSendSms.new.send_message(
+        ENV.fetch('TWILIO_PHONE_NUMBER'),
+        phone,
+        'Welcome to Jedis Proj',
+      )
     end
   end
 end
